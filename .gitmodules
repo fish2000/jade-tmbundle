@@ -1,3 +1,6 @@
 [submodule "Support/pyjade"]
 	path = Support/pyjade
 	url = git@github.com:syrusakbary/pyjade.git
+[submodule "Support/jade"]
+	path = Support/jade
+	url = git@github.com:pugjs/jade.git
