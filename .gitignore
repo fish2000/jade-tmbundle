@@ -1,1 +1,14 @@
-*.cache
+/build/
+/dist/
+/deps/*/build/
+/python/build/
+/python/imread.egg-info/
+*.dylib
+*.a
+*.so
+*.o
+*.db
+*.bii
+*.pyc
+*.pyo
+.tm_properties
