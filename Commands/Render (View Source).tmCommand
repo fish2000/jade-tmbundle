@@ -5,17 +5,24 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env sh
-echo "&lt;pre style='font-family:Menlo; font-size: 12px; word-wrap: break-word;'&gt;"
-jade | sed 's/&lt;/\&amp;lt;/g' | sed 's/&gt;/\&amp;gt;/g'
-echo "&lt;/pre&gt;"
+	<string>#!/usr/bin/env bash
+if [[ -e "$TM_FILEPATH" ]]; then
+    htmlpath=${TM_FILEPATH/%jade/html}
+    if [[ ! -e "$htmlpath" ]]; then
+        jade --pretty ${TM_FILEPATH} &> /dev/null
+        echo "<pre style='font-family:Menlo; font-size: 12px; word-wrap: break-word;'>"
+        cat $htmlpath | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g'
+        echo "</pre>"
+        rm $htmlpath
+    fi
+fi
 </string>
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>
 	<string>@b</string>
 	<key>name</key>
-	<string>Render</string>
+	<string>Render (View Source)</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
