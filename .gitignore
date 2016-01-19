@@ -1,8 +1,8 @@
 /build/
 /dist/
 /deps/*/build/
-/python/build/
-/python/imread.egg-info/
+/Support/pyjade/build/
+/Support/pyjade/pyjade.egg-info/
 *.dylib
 *.a
 *.so
